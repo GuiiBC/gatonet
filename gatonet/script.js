@@ -1,4 +1,3 @@
-// ===== Elementos do DOM =====
 const botaoInscricao = document.getElementById("guilherme-btn-sub");
 const modalInscricao = document.getElementById("guilherme-modal-inscricao");
 const botaoFecharInscricao = document.getElementById("guilherme-fechar-inscricao");
@@ -24,7 +23,6 @@ const formBusca = document.getElementById("guilherme-busca");
 const inputBusca = document.getElementById("guilherme-busca-input");
 const mensagemSemResultados = document.getElementById("guilherme-sem-resultados");
 
-// ===== Destaque (carrossel de imagens) =====
 const imagens = [
     "img/homem-aranha.jpg",
     "img/supergirl.jpg",
@@ -34,19 +32,16 @@ const imagens = [
 
 let indice = 0;
 
-// Pré-carrega as imagens para a troca não "piscar"
 imagens.forEach(function (src) {
     new Image().src = src;
 });
 
-// A cada chamada: some com a imagem, troca o src e reaparece quando a nova carregar.
 function alternarImagem() {
     imagemDestaque.style.opacity = 0;
 
     setTimeout(function () {
         indice = (indice + 1) % imagens.length;
 
-        // Define o onload ANTES do src para não perder o evento
         imagemDestaque.onload = function () {
             imagemDestaque.style.opacity = 1;
         };
@@ -56,7 +51,6 @@ function alternarImagem() {
 
 setInterval(alternarImagem, 7000);
 
-// ===== Catálogo =====
 const catalogo = {
     scarface: {
         titulo: "Scarface",
@@ -180,8 +174,6 @@ const catalogo = {
     }
 };
 
-// ===== Controle dos modais =====
-// Impede a página de rolar por trás quando um modal está aberto.
 function atualizarScrollDoBody() {
     const algumAberto = document.querySelector(".guilherme-modal.guilherme-aberto");
     document.body.classList.toggle("guilherme-sem-scroll", Boolean(algumAberto));
@@ -198,7 +190,6 @@ function fecharModalInscricao() {
     atualizarScrollDoBody();
 }
 
-// Preenche o modal com os dados do catálogo e abre.
 function abrirModalTitulo(idFilme, elementoImg) {
     const item = catalogo[idFilme];
     if (!item) return;
@@ -214,7 +205,6 @@ function abrirModalTitulo(idFilme, elementoImg) {
     descricaoModal.textContent = item.sinopse;
     trailerModal.title = "Trailer de " + item.titulo;
 
-    // URL() acrescenta o autoplay corretamente, mesmo se o link já tiver parâmetros
     if (item.trailer) {
         const url = new URL(item.trailer);
         url.searchParams.set("autoplay", "1");
@@ -233,9 +223,6 @@ function fecharModalTitulo() {
     atualizarScrollDoBody();
 }
 
-// ===== Formulário =====
-// Os campos obrigatórios já são validados pelo navegador (atributo "required"),
-// então aqui só resta o que o HTML não cobre: conferir as senhas.
 function verificarFormulario() {
     const nome = document.getElementById("guilherme-nome").value.trim();
     const senha = document.getElementById("guilherme-senha").value;
@@ -254,7 +241,6 @@ function verificarFormulario() {
     formulario.reset();
 }
 
-// ===== Cards (clique e teclado) =====
 cards.forEach(function (card) {
     card.tabIndex = 0;
     card.setAttribute("role", "button");
@@ -272,8 +258,6 @@ cards.forEach(function (card) {
     });
 });
 
-// ===== Busca =====
-// Filtra os cards pelo texto digitado e esconde as seções que ficarem vazias.
 function filtrarCatalogo() {
     const termo = inputBusca.value.trim().toLowerCase();
     let totalVisiveis = 0;
@@ -303,14 +287,11 @@ formBusca.addEventListener("submit", function (event) {
 });
 inputBusca.addEventListener("input", filtrarCatalogo);
 
-// ===== Eventos gerais =====
-// Clique fora do modal fecha.
 window.addEventListener("click", function (event) {
     if (event.target === modalInscricao) fecharModalInscricao();
     if (event.target === modalTitulo) fecharModalTitulo();
 });
 
-// Tecla Esc fecha o modal aberto.
 document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
     if (modalInscricao.classList.contains("guilherme-aberto")) fecharModalInscricao();
@@ -321,7 +302,6 @@ botaoInscricao.addEventListener("click", abrirModalInscricao);
 botaoFecharInscricao.addEventListener("click", fecharModalInscricao);
 botaoFecharTitulo.addEventListener("click", fecharModalTitulo);
 
-// Evita o reload da página ao enviar o formulário.
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     verificarFormulario();
