@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GatoNet | Guilherme Chagas</title>
+    <link rel="icon" type="image/png" href="img/Neon Pirate Hacker Cat Emblem.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="guilherme-container">
+
+    <header id="guilherme-cabecalho">
+        <div class="guilherme-logo">
+            <img src="img/Neon Purple Cat Satellite Logo.png" alt="Logo GatoNet">
+        </div>
+
+        <nav id="guilherme-nav" aria-label="Navegação principal">
+            <ul class="guilherme-nav-links">
+                <li><a href="#guilherme-container">Início</a></li>
+                <li><a href="#guilherme-filmes">Filmes</a></li>
+                <li><a href="#guilherme-series">Séries</a></li>
+                <li><a href="#guilherme-animes">Animes</a></li>
+            </ul>
+        </nav>
+
+        <form id="guilherme-busca" role="search">
+            <input type="search" id="guilherme-busca-input" placeholder="Pesquisar..." aria-label="Pesquisar títulos">
+            <button type="submit" aria-label="Pesquisar">⌕</button>
+        </form>
+
+        <div class="guilherme-button">
+            <button type="button">Entrar</button>
+            <button id="guilherme-btn-sub" type="button">Inscreva-se</button>
+        </div>
+
+        <div id="guilherme-usuario-logado">
+            <h3 id="guilherme-nome-usuario"></h3>
+        </div>
+    </header>
+
+    <main id="guilherme-conteudo-principal">
+
+        <div id="guilherme-destaque">
+            <h3>A PIRATARIA NÃO DORME!</h3>
+            <h1>Recém-contrabandeados do cinema.</h1>
+            <p>Lançamentos</p>
+
+            <div class="guilherme-destaque-img">
+                <img id="guilherme-imagem-destaque" src="img/doomsday.jpg" alt="Doomsday">
+            </div>
+        </div>
+
+        <section class="guilherme-cards-container" id="guilherme-filmes">
+            <h2>Filmes</h2>
+            <div class="guilherme-lista-filmes">
+
+                <article class="guilherme-card-filmes" data-filme="scarface">
+                    <img src="img/scarface.jpg" alt="Scarface">
+                    <p>Scarface (1983)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="godfather">
+                    <img src="img/godfather.jpg" alt="The Godfather">
+                    <p>The Godfather (1972)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="killbill">
+                    <img src="img/killbill.jpg" alt="Kill Bill">
+                    <p>Kill Bill (2003)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="pulpfiction">
+                    <img src="img/Pulp_Fiction_cover.jpg" alt="Pulp Fiction">
+                    <p>Pulp Fiction (1994)</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="guilherme-cards-container" id="guilherme-series">
+            <h2>Séries</h2>
+            <div class="guilherme-lista-filmes">
+
+                <article class="guilherme-card-filmes" data-filme="breakingbad">
+                    <img src="img/bb.jpg" alt="Breaking Bad">
+                    <p>Breaking Bad (2008)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="bettercallsaul">
+                    <img src="img/bcs.jpg" alt="Better Call Saul">
+                    <p>Better Call Saul (2015)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="sopranos">
+                    <img src="img/sopranos.jpg" alt="The Sopranos">
+                    <p>The Sopranos (1999)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="house">
+                    <img src="img/house.jpg" alt="House, M.D.">
+                    <p>House, M.D. (2004)</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="guilherme-cards-container" id="guilherme-animes">
+            <h2>Animes</h2>
+            <div class="guilherme-lista-filmes">
+
+                <article class="guilherme-card-filmes" data-filme="naruto">
+                    <img src="img/naruto.jpg" alt="Naruto Shippuden">
+                    <p>Naruto Shippuden (2007)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="deathnote">
+                    <img src="img/deathnote.jpg" alt="Death Note">
+                    <p>Death Note (2006)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="cowboybebop">
+                    <img src="img/cowboybebop.jpg" alt="Cowboy Bebop">
+                    <p>Cowboy Bebop (1998)</p>
+                </article>
+
+                <article class="guilherme-card-filmes" data-filme="monster">
+                    <img src="img/monster.jpg" alt="Monster">
+                    <p>Monster (2004)</p>
+                </article>
+
+            </div>
+        </section>
+
+        <p id="guilherme-sem-resultados" hidden>Nenhum título encontrado.</p>
+
+    </main>
+
+    <div id="guilherme-modal-inscricao" class="guilherme-modal" role="dialog" aria-modal="true" aria-labelledby="guilherme-titulo-inscricao">
+        <div class="guilherme-modal-conteudo">
+
+            <button class="guilherme-fechar-modal" id="guilherme-fechar-inscricao" type="button" aria-label="Fechar modal">X</button>
+
+            <h2 id="guilherme-titulo-inscricao"><strong>Junte-se à tripulação!</strong></h2>
+            <p>Cadastre-se na GatoNet e apoie a pirataria.</p>
+
+            <form id="guilherme-form-inscricao">
+                <fieldset>
+                    <legend>Dados da Conta:</legend>
+
+                    <label for="guilherme-nome">Nome:</label>
+                    <input type="text" id="guilherme-nome" name="nome" placeholder="Ex: Fulano de Tal" autocomplete="name" required>
+
+                    <label for="guilherme-email">Email:</label>
+                    <input type="email" id="guilherme-email" name="email" placeholder="fulanodetal@email.com" autocomplete="email" required>
+
+                    <label for="guilherme-senha">Senha:</label>
+                    <input type="password" id="guilherme-senha" name="senha" autocomplete="new-password" required>
+
+                    <label for="guilherme-confirma-senha">Confirmar Senha:</label>
+                    <input type="password" id="guilherme-confirma-senha" name="confirma-senha" autocomplete="new-password" required>
+
+                    <label for="guilherme-bday">Data de Nascimento:</label>
+                    <input type="date" id="guilherme-bday" name="bday" autocomplete="bday" required>
+
+                    <label for="guilherme-genero">Gênero:</label>
+                    <select name="genero" id="guilherme-genero" required>
+                        <option value="">-</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sugestões:</legend>
+
+                    <label for="guilherme-sugestoes">Quais títulos gostaria de ver aqui?</label>
+                    <textarea name="sugestoes" id="guilherme-sugestoes" rows="4" required></textarea>
+                </fieldset>
+
+                <div class="guilherme-termos">
+                    <input type="checkbox" id="guilherme-termos" name="termos" required>
+                    <label for="guilherme-termos">Aceito os termos e estou de acordo com a pirataria.</label>
+                </div>
+
+                <p id="guilherme-mensagem-erro" role="alert"></p>
+
+                <button type="submit">Inscrever-se</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="guilherme-modal-titulo" class="guilherme-modal" role="dialog" aria-modal="true" aria-labelledby="guilherme-titulo-nome">
+        <div class="guilherme-modal-filme-conteudo">
+
+            <button id="guilherme-fechar-titulo" class="guilherme-fechar-modal" type="button" aria-label="Fechar modal">X</button>
+
+            <img id="guilherme-titulo-imagem" src="" alt="">
+
+            <div class="guilherme-titulo-info">
+                <h2 id="guilherme-titulo-nome"></h2>
+                <p id="guilherme-titulo-ano"></p>
+                <p id="guilherme-titulo-genero"></p>
+                <p id="guilherme-titulo-categoria"></p>
+                <p id="guilherme-titulo-nota"></p>
+                <p id="guilherme-titulo-classificacao"></p>
+                <div id="guilherme-titulo-trailer">
+                    <iframe src="" title="Trailer" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <p id="guilherme-titulo-descricao"></p>
+
+        </div>
+    </div>
+
+    <footer id="guilherme-footer">
+        <p>GatoNet © 2026 — Se tá tudo caro, a gente pirateia. ☠️</p>
+        <p>Guilherme Chagas</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
